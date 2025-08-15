@@ -6,3 +6,4 @@ services:
     network_mode: host
     ports:
       - "9253:9253"
+    restart: unless-stopped

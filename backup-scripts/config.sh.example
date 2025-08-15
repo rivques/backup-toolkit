@@ -1,0 +1,13 @@
+export RESTIC_PASSWORD="your_password"
+export RESTIC_REPOSITORY="rest://endpoint/repo"
+PATHS_TO_BACKUP="/ /boot"
+EXCLUDE="~/.cache"
+RETENTION_POLICY="--keep-within-daily 7d --keep-within-weekly 1m --keep-within-monthly 6m --keep-within-yearly 2y"
+BEFORE_BACKUP_COMMAND="./wake-if-needed.sh servername"
+AFTER_BACKUP_COMMAND="echo 'Backup completed.' && date"
+
+# Optional: email notifications on error. At least one of EMAIL_ON_ERROR_TO or MAILTO must be set
+# EMAIL_ON_ERROR_TO="ops@example.com"
+# EMAIL_FROM="backup@myhost"
+# EMAIL_SUBJECT_PREFIX="[backup]"
+# If using msmtp system config, ensure /etc/msmtprc or ~/.config/msmtp/config is set up for this user.

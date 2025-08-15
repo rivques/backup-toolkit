@@ -1,0 +1,13 @@
+[Unit]
+Description=Nightly system backup and maintenance
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/home/rivques/Documents/backup-toolkit/backup-scripts
+ExecStart=/home/rivques/Documents/backup-toolkit/backup-scripts/nightly-backup-and-maint.sh
+
+[Install]
+WantedBy=multi-user.target
+
