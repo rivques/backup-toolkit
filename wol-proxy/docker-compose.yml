@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  wol-proxy:
+    build: .
+    network_mode: host
+    ports:
+      - "9253:9253"
