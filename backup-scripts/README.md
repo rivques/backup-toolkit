@@ -1,13 +1,19 @@
 # backup-scripts
 
+## Setup
 Make a copy of config.sh.example for each repo you want to back up to, and fill them out (e.g. config-rd and config-ns). Store the repo passwords somewhere safe.
 
-Install backup-system.timer for once-morningly backups.
+Install backup-system.timer for once-morningly backups, possibly changing the user and home directories
 
 Optional: To receive email on failures, install and configure msmtp (with /etc/msmtprc) for the user running the scripts. Set EMAIL_ON_ERROR_TO (or MAILTO) in your config file. You can also set EMAIL_FROM and EMAIL_SUBJECT_PREFIX.
 
 In addition to config.sh.example, also check the existing config-*.sh files on machines.
 
+## Utilities
+### `restic-all.sh`
+Fill out `all-config.sh`, then run `restic-all.sh <--local|--remote|--all> <restic-command>` to execute a `restic` command on the specified repositories. Example: `restic-all.sh --local check`
+
+## Example setup
 Here are the commands I ran to set this up on a new server, assuming `rivques` is the username:
 
 ```bash

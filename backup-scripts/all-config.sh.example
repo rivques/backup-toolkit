@@ -1,0 +1,21 @@
+#! /bin/bash
+
+declare -A repos_local
+repos_local["/backups/restic/machine-1"]="machine-1-local-pw"
+repos_local["/backups/restic/machine-1"]="machine-2-local-pw"
+
+declare -A repos_remote
+repos_remote["rest:http://machine-2:7378/machine-1"]="machine-1-remote-pw"
+repos_remote["rest:http://machine-2:7378/machine-2"]="machine-2-remote-pw"
+
+
+# concatenate into repos_all
+declare -A repos_all
+
+for key in "${!repos_local[@]}"; do
+    repos_all["$key"]="${repos_local[$key]}"
+done
+
+for key in "${!repos_remote[@]}"; do
+    repos_all["$key"]="${repos_remote[$key]}"
+done

@@ -1,2 +1,4 @@
 config*.sh
 !config.sh.example
+all-config.sh
+!all-config.sh.example
