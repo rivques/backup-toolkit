@@ -7,7 +7,7 @@ SERVER="$1"
 if ! ping -c 1 "$SERVER" &> /dev/null; then
     echo "Server $SERVER is down. Trying to wake it up..."
     
-    echo "wake" | nc -N stream-condense 9253
+    echo "wake" | nc stream-condense 9253
 fi
 
 # Wait for the server to be reachable
